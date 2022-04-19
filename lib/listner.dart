@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-const EventChannel CHANNEL = EventChannel("com.example.eventchannel");
+const EventChannel channel = EventChannel("com.example.eventchannel");
 
 class EventChannelData {
   // x Axis
@@ -29,7 +29,7 @@ Stream<EventChannelData>? magneticEvent;
 Stream<EventChannelData>? get eventData {
   // ignore: prefer_conditional_assignment
   if (magneticEvent == null) {
-    magneticEvent = CHANNEL
+    magneticEvent = channel
         .receiveBroadcastStream()
         .map((event) => listOfValues(event.cast<double>()));
   }

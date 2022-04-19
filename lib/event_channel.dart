@@ -30,14 +30,11 @@ class _EventChannelState extends State<EventChannel> {
 
   @override
   Widget build(BuildContext context) {
-    // double angle = maths.atan2(sensorValues![1], sensorValues![0]);
+    double angle = maths.atan2(sensorValues![1], sensorValues![0]);
     return Scaffold(
-        body:
-            // Transform.rotate(
-            //     angle: maths.pi / 2 - angle,
-            //     child:
-            Center(child: Image.asset('assets/compass.png'))
-        // ),
-        );
+      body: Transform.rotate(
+          angle: maths.pi / 2 - angle,
+          child: Center(child: Image.asset('assets/compass.png'))),
+    );
   }
 }

@@ -17,7 +17,7 @@ class MainActivity: FlutterActivity(), SensorEventListener, EventChannel.StreamH
 
     private var eventSink : EventChannel.EventSink? = null
 
-    private val CHANNEL = "com.example.eventchannel";
+    private val channel = "com.example.eventchannel";
 
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -27,7 +27,7 @@ class MainActivity: FlutterActivity(), SensorEventListener, EventChannel.StreamH
 
         magneticSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
 
-        val event = EventChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
+        val event = EventChannel(flutterEngine.dartExecutor.binaryMessenger, channel)
 
         event.setStreamHandler(this)
 
@@ -42,7 +42,7 @@ class MainActivity: FlutterActivity(), SensorEventListener, EventChannel.StreamH
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
